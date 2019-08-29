@@ -25,5 +25,24 @@ function GetDataList() {
 
         });
 
+        loadSelectedItems();
+
     }).fail();
+}
+
+function loadSelectedItems() {
+    var selectedItems = [1, 3, 5, 7, 10];
+
+    var inpts = $("#dataCards :input");
+
+    selectedItems.forEach(function (item) {
+        for (let elem of inpts) {
+            var id = $(elem).attr('data-idE');
+
+            if (id === item.toString()) {
+                $(elem).attr('checked', 'checked');
+            }
+        };
+
+    });
 }
